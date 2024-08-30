@@ -34,6 +34,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, 3fr);
   margin: o auto;
+  gap: 20px;
 }
 
 label {
