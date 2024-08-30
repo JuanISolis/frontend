@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import logo from './assets/logo.jpg';
-import istecLogo from './assets/logo-istec.png';
-import puceLogo from './assets/logo-puce.png';
-import puce2Logo from './assets/puce.png';
-import EstudianteForm from './formulario/ISTEC'; // Asegúrate de la ruta correcta
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import logo from "./assets/logo.jpg";
+import istecLogo from "./assets/logo-istec.png";
+import puceLogo from "./assets/logo-puce.png";
+import puce2Logo from "./assets/puce.png";
+import Istec from "./components/Istec.jsx";
 
 function App() {
   return (
@@ -22,24 +22,23 @@ function App() {
               src={istecLogo}
               alt="ISTEC Logo"
               className="logo"
-              style={{ cursor: 'pointer', marginRight: '20px' }}
+              style={{ cursor: "pointer", marginRight: "20px" }}
             />
           </Link>
           <img
             src={puceLogo}
             alt="PUCE Logo"
             className="logo"
-            onClick={() => handleClick('PUCE')}
-            style={{ cursor: 'pointer', marginRight: '20px' }}
+            onClick={() => handleClick("PUCE")}
+            style={{ cursor: "pointer", marginRight: "20px" }}
           />
         </section>
         <Routes>
-          <Route path="/istec" element={<EstudianteForm />} />
+          <Route path="/istec" element={<Istec />} />
         </Routes>
       </div>
     </Router>
   );
 }
-
 
 export default App;

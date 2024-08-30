@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import "./FormularioIS.css"; // Asegúrate de crear este archivo
-// import logoIS from '../assets/logo.png'; // Importa el logo
 import axios from "axios";
-
-const EstudianteForm = () => {
+import "../formulario/FormularioIS.css";
+const Istec = () => {
   const [formData, setFormData] = useState({
     matricula_cancelada: "",
     nombres: "",
@@ -782,4 +780,4 @@ const EstudianteForm = () => {
   );
 };
 
-export default EstudianteForm;
+export default Istec;
