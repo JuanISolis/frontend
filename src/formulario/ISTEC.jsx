@@ -107,7 +107,7 @@ const EstudianteForm = () => {
         <p>(Firma)______________________</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="formulario">
+      <form onSubmit={handleSubmit} className="formulary">
         <div className="form-row">
           <label htmlFor="carrera">Carreras:</label>
           <select
@@ -356,8 +356,8 @@ const EstudianteForm = () => {
           />
         </div>
         <div className="form-row">
-          <label htmlFor="mail">E-mail:</label>
-          <input type="text" id="mail" name="mail" />
+          <label htmlFor="mail">mail:</label>
+          <input type="email" id="mail" name="mail" placeholder="email" />
         </div>
         <div className="form-row">
           <label htmlFor="cantón">Cantón:</label>
