@@ -226,11 +226,11 @@ const EstudianteForm = () => {
           />
         </div>
         <div className="form-row">
-          <label htmlFor="puebloNacionalidad">Pueblo y Nacionalidad:</label>
+          <label htmlFor="pueblo_nacionalidad">Pueblo y Nacionalidad:</label>
           <input
             type="text"
-            id="puebloNacionalidad"
-            name="puebloNacionalidad"
+            id="pueblo_nacionalidad"
+            name="pueblo_nacionalidad"
             value={formData.datos_estudiante.pueblo_nacionalidad || ""}
             onChange={(e) => handleNestedChange(e, "datos_estudiante")}
           />
@@ -271,21 +271,21 @@ const EstudianteForm = () => {
           </div>
         </div>
         <div className="form-row">
-          <label htmlFor="provinciaNacimiento">Provincia de Nacimiento:</label>
+          <label htmlFor="provincia_nacimiento">Provincia de Nacimiento:</label>
           <input
             type="text"
-            id="provinciaNacimiento"
-            name="provinciaNacimiento"
+            id="provincia_nacimiento"
+            name="provincia_nacimiento"
             value={formData.datos_estudiante.provincia_nacimiento || ""}
             onChange={(e) => handleNestedChange(e, "datos_estudiante")}
           />
         </div>
         <div className="form-row">
-          <label htmlFor="tipoDiscapacidad">Tipo de Discapacidad:</label>
+          <label htmlFor="discapacidad">Tipo de Discapacidad:</label>
           <input
             type="text"
-            id="tipoDiscapacidad"
-            name="tipoDiscapacidad"
+            id="discapacidad"
+            name="discapacidad"
             value={formData.salud.discapacidad.tipo || ""}
             onChange={(e) => handleNestedChange(e, "salud")}
           />
