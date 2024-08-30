@@ -1,0 +1,71 @@
+.App {
+  max-width: 100%;
+  margin: 0 ;
+  padding: 100px;
+  
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: Arial black, sans-serif;
+  
+
+}
+
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 2px solid green;
+  text-align: center;
+  
+  
+}
+
+.header-logo {
+  height: 50px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: bold;
+  color: black;
+  
+}
+
+.logo-section {
+  display: flex;
+  justify-content: center; /* Centra los logos horizontalmente */
+  align-items: center;
+  margin-top: 30px;
+  
+  
+}
+
+.logo {
+  max-height: 400px;
+  max-width: 400px;
+  margin: 0 90px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #64ffb7aa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #079163aa);
+}
+
+
+ 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10rem;
+  
+}
