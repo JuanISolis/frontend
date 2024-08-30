@@ -68,11 +68,87 @@ const EstudianteForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const datosTest = {
+      matricula_cancelada: "false",
+      nombres: "Juan Carlos",
+      apellidos: "Pérez Gómez",
+      edad: "24",
+      celular: "0987654321",
+      numero_telefonico: "022345678",
+      estudios: {
+        nom_colegio: "Colegio Nacional ABC",
+        tipo_colegio: "fiscal",
+        provincia: "Pichincha",
+        canton: "Quito",
+        ciudad: "Quito",
+        titulo: "Técnico en Informática",
+      },
+      salud: {
+        emergencias: {
+          nombre_contacto: "María Gómez",
+          contacto_emergencia: "0987654322",
+        },
+        discapacidad: {
+          tipo: "Visual",
+          porcentaje_discapacidad: "30%",
+        },
+        nro_carnet: "123456789",
+        tipoSangre: "O+",
+        discapacidad: "true",
+      },
+      info_general: {
+        familia: {
+          familiar_bono: "si",
+        },
+        ocupacion: "Estudiante",
+        cargo: "nose",
+        lugar_trabajo: "nose",
+        telefono_trabajo: "123278678646",
+        empleo_ingresos: "6725",
+        bono: "si",
+        origen_recursos: "Trabajo",
+      },
+      residencia: {
+        provincia: "Pichincha",
+        canton: "Quito",
+        parroquia: "Centro Histórico",
+        barrio_recinto: "San Juan",
+      },
+      datos_estudiante: {
+        sexo: "masculino",
+        genero: "masculino",
+        nacionalidad: "Ecuatoriano",
+        etnia: "Mestizo",
+        cedula: "1712345678",
+        pueblo_nacionalidad: "Kichwa",
+        fecha_nacimiento: "2000-01-15",
+        provincia_nacimiento: "Pichincha",
+        canton_nacimiento: "Quito",
+        estado_civil: "soltero",
+        telefono: "022345678",
+      },
+      carrera: {
+        carrera: ["desarrollo de Software"],
+      },
+      servicio_inst: {},
+    };
     try {
-      const response = await axios.post("/api/estudiantes", formData);
-      console.log("Estudiante creado:", response.data);
+      const response = await fetch("/api/estudiante", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosTest),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("studiante creado:", data);
     } catch (error) {
-      console.error("Error al crear estudiante:", error);
+      console.error("error al crear estudiante:", error);
     }
   };
 
@@ -113,7 +189,6 @@ const EstudianteForm = () => {
           <select
             name="carrera"
             onChange={(e) => handleMultipleSelectChange(e, "carrera")}
-            required
           >
             <option value="">Seleccione una opción</option>
             <option value="procesamiento">
@@ -255,18 +330,18 @@ const EstudianteForm = () => {
             <option value="false">No</option>
             <option value="true">Sí</option>
           </select>
+          // porcentaje_discapacidad
           <div className="form-row">
-            <label htmlFor="porcentajeDiscapacidad">
+            <label htmlFor="porcentaje_discapacidad">
               Porcentaje de Discapacidad:
             </label>
             <input
-              type="number"
-              id="porcentajeDiscapacidad"
-              name="porcentajeDiscapacidad"
+              type="text"
+              id="porcentaje_discapacidad"
+              name="porcentaje_discapacidad"
+              placeholder="10%"
               value={formData.salud.discapacidad.porcentaje_discapacidad || ""}
-              onChange={(e) => handleNestedChange(e, "salud")}
-              min="0"
-              max="100"
+              onChange={(e) => handleChange(e, "salud")}
             />
           </div>
         </div>
@@ -281,31 +356,31 @@ const EstudianteForm = () => {
           />
         </div>
         <div className="form-row">
-          <label htmlFor="discapacidad">Tipo de Discapacidad:</label>
+          <label htmlFor="tipo">Tipo de Discapacidad:</label>
           <input
             type="text"
-            id="discapacidad"
-            name="discapacidad"
-            value={formData.salud.discapacidad.tipo || ""}
-            onChange={(e) => handleNestedChange(e, "salud")}
+            id="tipo"
+            name="tipo" // El name coincide con la propiedad 'tipo' dentro de 'discapacidad'
+            value={formData.salud.discapacidad.tipo}
+            onChange={handleNestedChange}
           />
         </div>
         <div className="form-row">
-          <label htmlFor="cantonNacimiento">Cantón de Nacimiento:</label>
+          <label htmlFor="canton_nacimiento">Cantón de Nacimiento:</label>
           <input
             type="text"
-            id="cantonNacimiento"
-            name="cantonNacimiento"
+            id="canton_nacimiento"
+            name="canton_nacimiento"
             value={formData.datos_estudiante.canton_nacimiento || ""}
             onChange={(e) => handleNestedChange(e, "datos_estudiante")}
           />
         </div>
         <div className="form-row">
-          <label htmlFor="nroCarnet">Nro. Carnet:</label>
+          <label htmlFor="nro_carnet">Nro. Carnet:</label>
           <input
             type="text"
-            id="nroCarnet"
-            name="nroCarnet"
+            id="nro_carnet"
+            name="nro_carnet"
             value={formData.salud.nro_carnet || ""}
             onChange={(e) => handleNestedChange(e, "salud")}
           />
